@@ -58,6 +58,23 @@ function App() {
             }
         }
     }
+    function undoClick(index) {
+        const newTaskUndoList = [];
+        let newCompletedTaskUndoList = [...taskList]
+        for (let i = 0; i < completedTaskList.length; i++) {
+            if (i !== index) {
+                newTaskUndoList.push(completedTaskList[i]);
+            } else {
+                newCompletedTaskUndoList.push(completedTaskList[i])
+            }
+        }
+        setCompletedTaskList(newTaskUndoList);       
+        setTaskList(newCompletedTaskUndoList);      
+    }
+
+    
+
+    
 
     return (
         <div className="App">
@@ -75,7 +92,7 @@ function App() {
                 </div>
                 <div className="taskListContainer">
                     <TaskList taskList={taskList} doneClick={doneClick} deleteClick={deleteClick} />
-                    <CompletedTask completedTaskList={completedTaskList} deleteClick={deleteClick} />
+                    <CompletedTask completedTaskList={completedTaskList} deleteClick={deleteClick} undoClick={undoClick} />
                 </div>
             </div>
         </div>

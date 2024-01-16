@@ -14,7 +14,7 @@ function taskList(props) {
                                 {task}
                             </p>
                             <button onClick={() => props.doneClick(index)}>Done</button>
-                            <button>Edit</button>
+                            <button onClick={()=>props.editClick()}>Edit</button>
                             <button onClick={() => props.deleteClick("taskList", index)}>Delete</button>
                         </div>
                     );
